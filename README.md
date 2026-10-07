@@ -16,7 +16,7 @@ Open `index.html` in a browser (or use the VS Code "Live Server" extension).
 ```
 git init
 git add .
-git commit -m "Initial commit: campus POS"
+git commit -m "Set up project structure and basic POS interface"
 git branch -M main
 git remote add origin https://github.com/<your-username>/campus-pos.git
 git push -u origin main
