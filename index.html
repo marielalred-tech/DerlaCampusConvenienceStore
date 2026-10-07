@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Corner Store POS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Campus Corner Store</h1>
+    <div class="topbar-meta">
+      <span id="clock"></span>
+      <button id="newTxnBtn" class="btn btn-ghost" type="button">New transaction</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Products -->
+    <section class="catalog" aria-label="Products">
+      <div class="catalog-tools">
+        <div class="tabs" id="tabs" role="tablist"></div>
+        <input id="search" type="search" placeholder="Search products" aria-label="Search products">
+      </div>
+      <div class="grid" id="productGrid"></div>
+    </section>
+
+    <!-- Cart + Payment -->
+    <aside class="order" aria-label="Current order">
+      <h2>Current order</h2>
+      <ul class="cart" id="cartList"></ul>
+      <p class="empty" id="emptyMsg">No items yet. Tap a product to add it.</p>
+
+      <dl class="totals">
+        <div><dt>Items</dt><dd id="itemCount">0</dd></div>
+        <div class="grand"><dt>Total</dt><dd id="total">₱0.00</dd></div>
+      </dl>
+
+      <div class="pay">
+        <label for="cash">Cash received (₱)</label>
+        <input id="cash" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00">
+        <div class="quick" id="quickCash"></div>
+        <p class="change-row">Change <strong id="change">₱0.00</strong></p>
+        <p class="error" id="error" role="alert"></p>
+        <button id="payBtn" class="btn btn-primary" type="button">Charge &amp; print receipt</button>
+        <button id="clearBtn" class="btn btn-ghost" type="button">Clear cart</button>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Receipt -->
+  <div class="overlay" id="receiptOverlay" hidden>
+    <div class="receipt-wrap">
+      <div class="receipt" id="receipt"></div>
+      <div class="receipt-actions">
+        <button class="btn btn-ghost" id="printBtn" type="button">Print</button>
+        <button class="btn btn-primary" id="doneBtn" type="button">Start new transaction</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
